@@ -5,13 +5,12 @@ using UnityEngine.Events;
 
 public class Interactions : MonoBehaviour
 {
-    
+
+    public UnityEvent KeyEPress;
+
     void Start()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-
-        }
+        
     }
 
     
@@ -20,5 +19,10 @@ public class Interactions : MonoBehaviour
         
     }
      
+
+    public void KeyE()
+    {
+        print(":)");
+    }
     
 }
