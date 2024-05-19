@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7395130010174050452}
   - component: {fileID: 8535893120985717479}
   m_Layer: 0
-  m_Name: Bug
+  m_Name: Bug 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6603774, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.13679248, g: 0.6273986, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697ec1cc5fefcb345bcf5dc60e9b9a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   startHealth: 100
 --- !u!114 &8535893120985717479
 MonoBehaviour:

@@ -5,8 +5,6 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Bug : MonoBehaviour
 { 
-    public float startSpeed = 10f;
-
     public float speed;
 
     public float startHealth = 100;
@@ -14,14 +12,11 @@ public class Bug : MonoBehaviour
 
     void Start()
     {
-        speed = startSpeed;
         health = startHealth;
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int damage)
     {
-        health -= amount;
-
+        health -= damage;
     }
-
 }

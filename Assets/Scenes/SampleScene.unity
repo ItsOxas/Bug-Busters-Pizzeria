@@ -166,7 +166,7 @@ GameObject:
   m_Layer: 0
   m_Name: PathPoint (1)
   m_TagString: Path
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -197,7 +197,7 @@ GameObject:
   m_Layer: 0
   m_Name: PathPoint (3)
   m_TagString: Path
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -228,7 +228,7 @@ GameObject:
   m_Layer: 0
   m_Name: PathPoint (2)
   m_TagString: Path
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -396,7 +396,7 @@ GameObject:
   m_Layer: 0
   m_Name: PathPoint
   m_TagString: Path
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -506,6 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1210932405}
+  - component: {fileID: 1210932406}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -532,6 +533,18 @@ Transform:
   - {fileID: 187124437}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1210932406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210932404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76043be758b9354468fcdb75dd1b9a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1799589742
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,12 +574,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b9a151f2838424d91ef983dfb43429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType:
+  enemiesType:
   - {fileID: 7239057737138438754, guid: c8980bd0892b73d4e87fcc81b1380b3b, type: 3}
+  - {fileID: 7239057737138438754, guid: 08a60444e9a1fbf4d8b6ffda1e97415c, type: 3}
   spawnPoints:
   - {fileID: 113828364}
-  enemyCounts: 01000000
-  spawnInterval: 1
+  enemyCounts: 00000000
+  currentWave: 0
+  waves:
+  - enemies:
+    - enemyType: 1
+      enemySettings:
+      - howMany: 6
+        Distance: 8
+        spawnInterval: 3.71
+    - enemyType: 0
+      enemySettings:
+      - howMany: 1
+        Distance: 0
+        spawnInterval: 10
+  enemies: []
   waveInterval: 10
   enemiesLeft: 0
 --- !u!4 &1799589744
