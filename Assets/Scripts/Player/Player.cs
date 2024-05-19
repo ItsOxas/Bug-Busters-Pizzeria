@@ -21,8 +21,10 @@ public class Player : MonoBehaviour
         speedX = Input.GetAxis("Horizontal") * speed;
         speedY = Input.GetAxis("Vertical") * speed;
 
-        moveDirection = rb.velocity = new Vector2(speedX, speedY);
 
+        
+        moveDirection = rb.velocity = new Vector2(speedX, speedY);
+        
         if (moveDirection != Vector2.zero)
         {
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
