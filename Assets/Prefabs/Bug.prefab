@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7719287385326864622}
   - component: {fileID: -2384516513799790825}
   - component: {fileID: -5381665065277585441}
-  - component: {fileID: -5866394545099230163}
+  - component: {fileID: 7395130010174050452}
+  - component: {fileID: 8535893120985717479}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Untagged
@@ -159,7 +160,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-5866394545099230163
+--- !u!114 &7395130010174050452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7239057737138438754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697ec1cc5fefcb345bcf5dc60e9b9a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSpeed: 10
+  speed: 0
+  startHealth: 100
+--- !u!114 &8535893120985717479
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,10 +187,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0cd17665925ab4581fe0015d8c4f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugSpeed: 3
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}

@@ -1,35 +1,53 @@
-using System.IO;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using System.Collections;
+using UnityEditor.Experimental.GraphView;
 
-public class Brains : MonoBehaviour
+public class BugBrains : MonoBehaviour
 {
-    public float bugSpeed;
 
-    public Transform target;
-    float distance;
-    Path path;
+    private Transform target;
+    private int wavepointIndex = 0;
+    private Bug bug;
 
-    private void Start()
+
+    void Start()
     {
-        path = FindObjectOfType<Path>();
-        target = path.GetClosestPoint(transform.position);
+        bug = GetComponent<Bug>();
+
+        target = Path.points[0];
     }
 
     void Update()
     {
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        if (distanceToTarget < 3)
+        Vector2 dir = target.position;
+        MoveTowards(dir);
+
+        if (Vector2.Distance(transform.position, target.position) <= 0.4f)
         {
-            target = path.GetNextPoint(transform.position);
+            GetNextWaypoint();
+        }
+    }
+
+    void GetNextWaypoint()
+    {
+        if (wavepointIndex >= Path.points.Length - 1)
+        {
+            EndPath();
+            return;
         }
 
-        MoveTowards();
+        wavepointIndex++;
+        target = Path.points[wavepointIndex];
     }
-    void MoveTowards() 
+
+    void EndPath()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, bugSpeed * Time.deltaTime);
-        Vector2 pos = target.transform.position - transform.position;
+        Destroy(gameObject);
+    }
+void MoveTowards(Vector2 direction) 
+    {
+        transform.position = Vector2.MoveTowards(transform.position, direction, bug.speed * Time.deltaTime);
+        Vector2 pos = direction - new Vector2(transform.position.x, transform.position.y);
         float angle = Mathf.Atan2(pos.x, pos.y) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
