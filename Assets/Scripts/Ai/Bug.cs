@@ -19,4 +19,11 @@ public class Bug : MonoBehaviour
     {
         health -= damage;
     }
+    public void Die() 
+    {
+        Spawner.enemiesLeft--;
+        Destroy(gameObject);
+    }
+
+
 }
