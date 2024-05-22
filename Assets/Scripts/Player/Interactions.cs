@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class Interactions : MonoBehaviour
 {
     public bool triggerActive = false;
+    public UnityEvent iteraction;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,6 +29,7 @@ public class Interactions : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
+            iteraction.Invoke();
             print(":)");
         }
     }
