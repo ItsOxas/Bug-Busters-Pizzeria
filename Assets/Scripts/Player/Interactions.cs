@@ -3,22 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Interactions : MonoBehaviour
 {
-    
-    void Start()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+    public bool triggerActive = false;
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "furnace")
+        {
+            triggerActive = true;
         }
     }
 
-    
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "furnace")
+        {
+            triggerActive = false;
+        }
+    }
+
     void Update()
     {
-        
+        if (triggerActive && Input.GetKeyDown(KeyCode.E))
+        {
+            print(":)");
+        }
     }
-     
-    
+
+
 }
