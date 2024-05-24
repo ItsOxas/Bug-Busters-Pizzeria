@@ -7,19 +7,26 @@ using UnityEngine.Events;
 public class Interactions : MonoBehaviour
 {
     public bool triggerActive = false;
-    public UnityEvent iteraction;
+
+    // cia pridekit jei reikia daugiau interiactions ir pridekit jam tag interactable
+    public UnityEvent Furnace;
+    public UnityEvent CarryingPizza;
+
+
+    Collider2D col;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "furnace")
+        if (collision.gameObject.tag == "interactable")
         {
             triggerActive = true;
         }
+        col = collision;
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "furnace")
+        if (collision.gameObject.tag == "interactable")
         {
             triggerActive = false;
         }
@@ -29,7 +36,15 @@ public class Interactions : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
-            iteraction.Invoke();
+            // cia unity eventa invokinkite ir parasykite pavadinima objecto
+            if(col.gameObject.name == "furnace")
+            {
+                Furnace.Invoke();
+            }
+            else if(col.gameObject.name == "pizza")
+            {
+                CarryingPizza.Invoke();
+            }
             print(":)");
         }
     }
