@@ -7,6 +7,7 @@ TagManager:
   - Path
   - Bug
   - interactable
+  - Chair
   layers:
   - Default
   - TransparentFX
