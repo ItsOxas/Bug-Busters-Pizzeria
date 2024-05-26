@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class SpawnCustomers : MonoBehaviour
 {
-    public List<GameObject> seats;
-    public List<GameObject> availableSeats;
+    static public List<GameObject> seats;
+    static public List<GameObject> availableSeats;
 
     public GameObject prefab;
     public Transform spawnPoint;
 
-    public bool spawn;
+    bool spawn = true;
 
-    public int Customers;
+    static public int Customers;
 
     void Awake()
     {
@@ -22,13 +22,13 @@ public class SpawnCustomers : MonoBehaviour
 
     }
 
-    async private void Update()
+    private void Update()
     {   
         if (spawn)
         {
             for (int x = 0; x < 1; x++)
-            {
-                Spawn();
+            {             
+                Invoke("Spawn", Random.Range(7f, 16f));
             }
             spawn = false;
         }
@@ -38,11 +38,9 @@ public class SpawnCustomers : MonoBehaviour
     {
         GameObject customer = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
 
-        GameObject customerTarget = customer.GetComponent<Customers>().target = availableSeats[Random.Range(0, availableSeats.Count)];
-              
-        print(customerTarget);
+        customer.GetComponent<Customers>().target = availableSeats[Random.Range(0, availableSeats.Count)];            
         Customers++;
-        availableSeats.Remove(customerTarget);
         
+        spawn = true;
     }
 }

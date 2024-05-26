@@ -22,7 +22,12 @@ public class Bug : MonoBehaviour
     public void Die() 
     {
         Spawner.enemiesLeft--;
-        Destroy(gameObject);
+
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 
