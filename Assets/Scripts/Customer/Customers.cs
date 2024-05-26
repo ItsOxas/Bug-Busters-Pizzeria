@@ -17,7 +17,15 @@ public class Customers : MonoBehaviour
     }
     public void Update()
     {
-        agent.SetDestination(target.transform.position);
+        if (target != null)
+        {
+            agent.SetDestination(target.transform.position);
+        }
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 }
 

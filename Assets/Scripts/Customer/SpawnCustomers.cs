@@ -10,7 +10,7 @@ public class SpawnCustomers : MonoBehaviour
     public GameObject prefab;
     public Transform spawnPoint;
 
-    public bool SpawnMore;
+    public bool spawn;
 
     public int Customers;
 
@@ -23,14 +23,14 @@ public class SpawnCustomers : MonoBehaviour
     }
 
     async private void Update()
-    {
-        if (SpawnMore)
+    {   
+        if (spawn)
         {
             for (int x = 0; x < 1; x++)
             {
                 Spawn();
             }
-            await new WaitForSeconds(2);
+            spawn = false;
         }
     }
 
@@ -39,8 +39,10 @@ public class SpawnCustomers : MonoBehaviour
         GameObject customer = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
 
         GameObject customerTarget = customer.GetComponent<Customers>().target = availableSeats[Random.Range(0, availableSeats.Count)];
+              
         print(customerTarget);
         Customers++;
         availableSeats.Remove(customerTarget);
+        
     }
 }
