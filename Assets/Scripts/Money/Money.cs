@@ -11,4 +11,13 @@ public class Money : MonoBehaviour
         money = 0;
     }
 
+    static void Buy(int value)
+    {
+        if (money >= value)
+        {
+            money -= value;
+            return;
+        }
+
+    }
 }
