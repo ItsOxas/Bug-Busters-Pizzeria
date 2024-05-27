@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class Pica : MonoBehaviour
 {
-    
-
     public int WitchPica;
     public int TimeForPicaToMake;
     public int MoneyEarnFromPica;
@@ -14,8 +12,6 @@ public class Pica : MonoBehaviour
 
     public void CarryingPizza()
     {
-        print(":(");
-        player = GameObject.FindWithTag("Player");
-        transform.parent = player.transform;
+        Destroy(gameObject);
     }
 }

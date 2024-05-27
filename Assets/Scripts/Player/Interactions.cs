@@ -13,7 +13,7 @@ public class Interactions : MonoBehaviour
     public UnityEvent CarryingPizza;
 
 
-    Collider2D col;
+    [SerializeField]public Collider2D col;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,11 +37,11 @@ public class Interactions : MonoBehaviour
         if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
             // cia unity eventa invokinkite ir parasykite pavadinima objecto
-            if(col.gameObject.name == "furnace")
+            if (col.gameObject.name == "furnace")
             {
                 Furnace.Invoke();
             }
-            else if(col.gameObject.name == "pizza")
+            else if (col.gameObject.name.Contains("pizza"));
             {
                 CarryingPizza.Invoke();
             }
