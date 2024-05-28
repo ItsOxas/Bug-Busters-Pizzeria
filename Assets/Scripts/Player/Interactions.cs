@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +12,7 @@ public class Interactions : MonoBehaviour
     // cia pridekit jei reikia daugiau interiactions ir pridekit jam tag interactable
     public UnityEvent Furnace;
     public UnityEvent CarryingPizza;
-
+    public UnityEvent CustomerGetingPizza;
 
     [SerializeField]public Collider2D col;
 
@@ -41,9 +42,13 @@ public class Interactions : MonoBehaviour
             {
                 Furnace.Invoke();
             }
-            else if (col.gameObject.name.Contains("pizza"));
+            else if (col.gameObject.name.Contains("pizza"))
             {
                 CarryingPizza.Invoke();
+            }
+            else if (col.gameObject.name.Contains("Customer"))
+            {
+                CustomerGetingPizza.Invoke();
             }
             print(":)");
         }

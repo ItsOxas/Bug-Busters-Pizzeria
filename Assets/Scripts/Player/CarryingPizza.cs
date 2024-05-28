@@ -8,6 +8,7 @@ public class CarryingPizza : MonoBehaviour
     Collider2D col;
     public bool HoldingPizza = false;
     public List<GameObject> Picos;
+    public int MoneyEarnFromPizza;
 
     void Start()
     {
@@ -37,4 +38,23 @@ public class CarryingPizza : MonoBehaviour
         }
         
     }
+    public void CustomerGetingPizza()
+    {   
+        
+        if (HoldingPizza)
+        {
+            if (WithchPizza == 1)
+            {
+                MoneyEarnFromPizza = 10;
+                HoldingPizza = false;
+            }
+            else
+            {
+                MoneyEarnFromPizza = 1;
+                HoldingPizza = false;    
+            }
+            print("Gavau");
+        }
+    }
+
 }
