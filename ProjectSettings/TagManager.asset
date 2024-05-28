@@ -8,6 +8,7 @@ TagManager:
   - Bug
   - interactable
   - Chair
+  - ChairLft
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Customer
   - Player
   - Chair
-  - 
+  - ChairRight
   - 
   - 
   - 
