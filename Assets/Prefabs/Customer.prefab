@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exit: {fileID: 4494358081412019829, guid: bc0939b0d77ac274e8f6529118cb22d2, type: 3}
+  anima: {fileID: 0}
   orderBubble: {fileID: 1029058829509752349}
   target: {fileID: 0}
   isSiting: 0
@@ -225,15 +226,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1292047220085457145, guid: 4dd8b7e5f68a8f04da747fdcd57f9fff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1292047220085457145, guid: 4dd8b7e5f68a8f04da747fdcd57f9fff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1292047220085457145, guid: 4dd8b7e5f68a8f04da747fdcd57f9fff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1292047220085457145, guid: 4dd8b7e5f68a8f04da747fdcd57f9fff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

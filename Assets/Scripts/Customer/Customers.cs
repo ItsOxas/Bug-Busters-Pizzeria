@@ -5,9 +5,14 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
+using UnityEngine.Windows;
 
 public class Customers : MonoBehaviour
 {
+    public Animator anim;
+    private bool moving;
+
     public GameObject exit;
 
     public GameObject orderBubble;
@@ -28,15 +33,9 @@ public class Customers : MonoBehaviour
     }
     public void Update()
     {
-        if (isSiting)
-        {
+        Enter();
 
-        }
-        else 
-        {
-            Enter();
-        }
-
+        Animate();
 
     }
 
@@ -47,6 +46,8 @@ public class Customers : MonoBehaviour
             isSiting = true;
             Invoke("Order", Random.Range(3f, 8f));
         }
+
+
     }
     private void Enter()
     {
@@ -65,6 +66,30 @@ public class Customers : MonoBehaviour
     void Order()
     {
         orderBubble.SetActive(true);
+    }
+
+    void Animate()
+    {
+        if (agent.velocity.magnitude > 0.1f || agent.velocity.magnitude < -0.1f)
+        {
+            moving = true;
+        }
+        else
+        {
+            moving = false;
+        }
+        if (moving)
+        {
+            anim.SetFloat("X", agent.velocity.x);
+            anim.SetFloat("Y", agent.velocity.y);
+        }
+
+        anim.SetBool("Moving", moving);
+        if (isSiting)
+        {
+            anim.SetBool("isSitting", isSiting);
+            
+        }
     }
 }
 

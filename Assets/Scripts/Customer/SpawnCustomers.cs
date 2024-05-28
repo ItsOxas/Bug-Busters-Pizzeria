@@ -24,10 +24,16 @@ public class SpawnCustomers : MonoBehaviour
 
     private void Update()
     {   
-        if (spawn)
+        if (Customers == seats.Count) 
+        {
+            spawn = true;
+        }
+        
+        if (spawn && Customers <= seats.Count)
         {
             for (int x = 0; x < 1; x++)
             {             
+                
                 Invoke("Spawn", Random.Range(7f, 16f));
             }
             spawn = false;
