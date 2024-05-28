@@ -7420,19 +7420,21 @@ MonoBehaviour:
   - {fileID: 7239057737138438754, guid: 08a60444e9a1fbf4d8b6ffda1e97415c, type: 3}
   spawnPoints:
   - {fileID: 823851679}
-  enemyCounts: 
   currentWave: 0
   waves:
   - enemies:
     - enemyType: 0
       amount: 5
+      spawnTime: 0
       spawnInterval: 2
+    waveTime: 60
   - enemies:
     - enemyType: 1
       amount: 2
+      spawnTime: 0
       spawnInterval: 2
-  waveInterval: 10
-  enemiesLeft: 0
+    waveTime: 60
+  nextWaveInterval: 8
 --- !u!4 &164447497
 Transform:
   m_ObjectHideFlags: 0
@@ -7572,6 +7574,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7349469314799804533, guid: 7f927fd0b61e68f4b8e15fecf0aa0ac4, type: 3}
   m_PrefabInstance: {fileID: 7993267}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &481946556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481946557}
+  m_Layer: 0
+  m_Name: spawnpointforPizza
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481946557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481946556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.01, y: 17.02, z: 2.3660383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &488245540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8264,6 +8297,16 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7349469314799804533, guid: 7f927fd0b61e68f4b8e15fecf0aa0ac4, type: 3}
   m_PrefabInstance: {fileID: 671269920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &762729996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7655669908737366200, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+  m_PrefabInstance: {fileID: 1896282229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &762729997 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+  m_PrefabInstance: {fileID: 1896282229}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &794543998
 GameObject:
@@ -10203,9 +10246,11 @@ GameObject:
   - component: {fileID: 1353938945}
   - component: {fileID: 1353938944}
   - component: {fileID: 1353938943}
+  - component: {fileID: 1353938946}
+  - component: {fileID: 1353938947}
   m_Layer: 0
-  m_Name: Fireplace
-  m_TagString: Untagged
+  m_Name: furnace
+  m_TagString: interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10239,7 +10284,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -10322,6 +10367,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353938946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353938942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197a6a933b8b978428d147ff69d82695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToMakePizza: 5
+  makepizza: 0
+  Picos:
+  - {fileID: 8682317154746999367, guid: edbfefc645b716e4da9404d6d9ad0475, type: 3}
+  - {fileID: 275178603077539361, guid: c304db377d2e1f34d895593920dc149c, type: 3}
+  KuriPica: 0
+  AllButtons: {fileID: 762729996}
+  SpawnPoint: {fileID: 481946556}
+--- !u!114 &1353938947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353938942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21363098cb3c66f4e8d78d53a35b6927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KuriPica: 5
 --- !u!1 &1355947449
 GameObject:
   m_ObjectHideFlags: 0
@@ -61520,6 +61598,161 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1357157168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357157174}
+  - component: {fileID: 1357157173}
+  - component: {fileID: 1357157172}
+  - component: {fileID: 1357157171}
+  - component: {fileID: 1357157170}
+  - component: {fileID: 1357157169}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1357157169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357157168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f1af43e2fa81040b4bf0ffc0d27ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WithchPizza: 0
+  HoldingPizza: 0
+  Picos: []
+  MoneyEarnFromPizza: 0
+--- !u!114 &1357157170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357157168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5096ce5607b724542aac3b412fdb41d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerActive: 0
+  Furnace:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CarryingPizza:
+    m_PersistentCalls:
+      m_Calls: []
+  CustomerGetingPizza:
+    m_PersistentCalls:
+      m_Calls: []
+  col: {fileID: 0}
+--- !u!114 &1357157171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357157168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1357157172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357157168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1357157173
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357157168}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1357157174
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357157168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 762729997}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1383222572
 GameObject:
   m_ObjectHideFlags: 0
@@ -80389,6 +80622,74 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1506435083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1506435086}
+  - component: {fileID: 1506435085}
+  - component: {fileID: 1506435084}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1506435084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506435083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1506435085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506435083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1506435086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506435083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508084615
 GameObject:
   m_ObjectHideFlags: 0
@@ -80659,8 +80960,51 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 697023819277788428, guid: 04e922c6e5626cb4a820f07187b21077, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1589442270}
   m_SourcePrefab: {fileID: 100100000, guid: 04e922c6e5626cb4a820f07187b21077, type: 3}
+--- !u!1 &1589442264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 697023819277788428, guid: 04e922c6e5626cb4a820f07187b21077, type: 3}
+  m_PrefabInstance: {fileID: 1585035785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1589442270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589442264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5096ce5607b724542aac3b412fdb41d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerActive: 0
+  Furnace:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1353938946}
+        m_TargetAssemblyTypeName: Furnace, Assembly-CSharp
+        m_MethodName: ChosingPizza
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CarryingPizza:
+    m_PersistentCalls:
+      m_Calls: []
+  CustomerGetingPizza:
+    m_PersistentCalls:
+      m_Calls: []
+  col: {fileID: 0}
 --- !u!1 &1658082584
 GameObject:
   m_ObjectHideFlags: 0
@@ -80809,6 +81153,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757827d3b78437f44a57e26f70595bdf, type: 3}
+--- !u!1001 &1896282229
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1357157174}
+    m_Modifications:
+    - target: {fileID: 2172133879935233253, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1353938947}
+    - target: {fileID: 2172133879935233253, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1353938946}
+    - target: {fileID: 2172133879935233253, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PirmaPica
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172133879935233253, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: MakingPizza
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -550.6785
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -259.7879
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2135677
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415351579380404597, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655669908737366200, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
+      propertyPath: m_Name
+      value: allButtons
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ab6853bd1cc0a24f9aa8c876428fec9, type: 3}
 --- !u!1001 &1901390939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81504,3 +81921,6 @@ SceneRoots:
   - {fileID: 1266489530}
   - {fileID: 164447497}
   - {fileID: 823851679}
+  - {fileID: 1357157174}
+  - {fileID: 1506435086}
+  - {fileID: 481946557}

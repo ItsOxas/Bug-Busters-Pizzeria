@@ -11,6 +11,7 @@ public class Furnace : MonoBehaviour
     public List<GameObject> Picos;
     public int KuriPica;
     public GameObject AllButtons;
+    public GameObject SpawnPoint;
 
 
     // Start is called before the first frame update
@@ -51,7 +52,7 @@ public class Furnace : MonoBehaviour
     public void PizzaReady()
     {
         print("hello");
-        Instantiate(Picos[KuriPica]);
+        Instantiate(Picos[KuriPica], SpawnPoint.transform.position, Quaternion.identity);
         
     }
 }
