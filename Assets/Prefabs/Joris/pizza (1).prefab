@@ -74,8 +74,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
+<<<<<<< Updated upstream:Assets/Prefabs/Joris/pizza (1).prefab
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+=======
+  m_SortingOrder: 1000
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+>>>>>>> Stashed changes:Assets/Prefabs/Joris/furnace.prefab
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,4 +140,43 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
+<<<<<<< Updated upstream:Assets/Prefabs/Joris/pizza (1).prefab
   m_Radius: 0.5
+=======
+  m_Size: {x: 1.776607, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &9196250843757665029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137518509044614097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197a6a933b8b978428d147ff69d82695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToMakePizza: 5
+  makepizza: 0
+  Picos:
+  - {fileID: 8682317154746999367, guid: edbfefc645b716e4da9404d6d9ad0475, type: 3}
+  - {fileID: 8682317154746999367, guid: edbfefc645b716e4da9404d6d9ad0475, type: 3}
+  - {fileID: 8682317154746999367, guid: edbfefc645b716e4da9404d6d9ad0475, type: 3}
+  - {fileID: 8682317154746999367, guid: edbfefc645b716e4da9404d6d9ad0475, type: 3}
+  KuriPica: 0
+  AllButtons: {fileID: 0}
+--- !u!114 &3460547312364438456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137518509044614097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21363098cb3c66f4e8d78d53a35b6927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KuriPica: 5
+>>>>>>> Stashed changes:Assets/Prefabs/Joris/furnace.prefab
