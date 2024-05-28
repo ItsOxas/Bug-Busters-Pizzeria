@@ -29,10 +29,9 @@ public class EnemyTargeting : MonoBehaviour
     }
 
 
-    private async void FindTareget()
+    private void FindTareget()
     {
         GameObject[] bugs = GameObject.FindGameObjectsWithTag(tag);
-        await new WaitForSeconds(0.01f);
         foreach (GameObject bug in bugs)
         {
             float condidateDistance = Vector2.Distance(transform.position, bug.transform.position);
