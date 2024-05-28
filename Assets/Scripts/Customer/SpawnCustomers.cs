@@ -18,6 +18,7 @@ public class SpawnCustomers : MonoBehaviour
     {
 
         seats = new List<GameObject>(GameObject.FindGameObjectsWithTag("Chair"));
+        
         availableSeats = new List<GameObject>(GameObject.FindGameObjectsWithTag("Chair"));
 
     }

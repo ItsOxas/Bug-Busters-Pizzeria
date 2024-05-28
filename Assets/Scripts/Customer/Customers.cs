@@ -44,6 +44,7 @@ public class Customers : MonoBehaviour
         if (collision.gameObject == target)
         {
             isSiting = true;
+            
             Invoke("Order", Random.Range(3f, 8f));
         }
 
@@ -51,7 +52,7 @@ public class Customers : MonoBehaviour
     }
     private void Enter()
     {
-       agent.SetDestination(target.transform.position);
+       agent.SetDestination(target.transform.position + new Vector3(0,0.5f,0));
     }
 
    private void Exit()
@@ -87,8 +88,12 @@ public class Customers : MonoBehaviour
         anim.SetBool("Moving", moving);
         if (isSiting)
         {
-            anim.SetBool("isSitting", isSiting);
-            
+            anim.SetBool("isSitting", true);
+            anim.SetFloat("X", agent.velocity.x);
+            if (target.layer == 9)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
     }
 }
