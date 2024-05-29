@@ -42,7 +42,7 @@ public class Interactions : MonoBehaviour
             {
                 Furnace.Invoke();
             }
-            else if (col.gameObject.name.Contains("pizza"))
+            else if (col.gameObject.layer == 10)
             {
                 CarryingPizza.Invoke();
             }

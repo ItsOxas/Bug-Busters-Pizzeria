@@ -5,6 +5,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.Rendering.UI;
 using UnityEngine.Tilemaps;
 using UnityEngine.Windows;
 
@@ -19,7 +20,8 @@ public class Customers : MonoBehaviour
     
     public GameObject target;
     NavMeshAgent agent;
-    public bool isSiting = false;
+    bool isSiting = false;
+    bool isEatting;
 
     public Event onInteraction;
 
@@ -43,11 +45,13 @@ public class Customers : MonoBehaviour
     {
         if (collision.gameObject == target)
         {
-            isSiting = true;
-            
+            isSiting = true;     
             Invoke("Order", Random.Range(3f, 8f));
         }
-
+        if (isEatting)
+        {
+            Eating();
+        }
 
     }
     private void Enter()
@@ -61,12 +65,24 @@ public class Customers : MonoBehaviour
 
         agent.SetDestination(target.transform.position);
 
-
+        isSiting = false;    
     }
 
     void Order()
     {
         orderBubble.SetActive(true);
+        GettingPizza();
+    }
+
+    void GettingPizza()
+    {
+        isEatting = true;
+        orderBubble.SetActive(false);
+    }
+
+    void Eating()
+    {
+            Invoke("Exit", 1);
     }
 
     void Animate()
@@ -96,5 +112,7 @@ public class Customers : MonoBehaviour
             }
         }
     }
+
+
 }
 

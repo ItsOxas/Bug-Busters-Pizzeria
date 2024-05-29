@@ -5,53 +5,34 @@ using UnityEngine;
 
 public class Furnace : MonoBehaviour
 {
+    bool inRange = false;
 
-    public float TimeToMakePizza = 5.0f;
-    public bool makepizza = false;
-    public List<GameObject> Picos;
-    public int KuriPica;
-    public GameObject AllButtons;
+    public GameObject pizzaPrefab;
 
-
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (makepizza)
+        if (inRange)
         {
-            if (TimeToMakePizza > 0.0f)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                TimeToMakePizza -= Time.deltaTime;
-            }
-            else if (TimeToMakePizza < 0.0f)
-            {
-                PizzaReady();
-                makepizza = false;
+                GameObject pizza = Instantiate(pizzaPrefab, transform);
+                pizza.GetComponent<Rigidbody2D>().AddForce(transform.up * 2);
             }
         }
     }
 
-    public void ChosingPizza()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        AllButtons.SetActive(true);
+        inRange = true;
     }
-
-    public void MakingPizza()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        KuriPica = gameObject.GetComponent<PicosButtons>().KuriPica;
-        makepizza = true;
-        TimeToMakePizza = Picos[KuriPica].GetComponent<Pica>().TimeForPicaToMake;
-        AllButtons.SetActive(false);
-    }
-    public void PizzaReady()
-    {
-        print("hello");
-        Instantiate(Picos[KuriPica]);
-        
+        inRange = false;
     }
 }
+
