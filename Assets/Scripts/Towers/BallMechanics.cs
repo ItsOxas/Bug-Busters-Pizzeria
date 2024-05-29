@@ -22,12 +22,17 @@ public class BallMechanics : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.Lerp(transform.position, target.position, trackStrength);
 
         if(target == null)
         {
             Destroy(gameObject);
         }
+        else
+        {
+            transform.position = Vector2.Lerp(transform.position, target.position, trackStrength);
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

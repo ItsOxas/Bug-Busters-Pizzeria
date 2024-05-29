@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ThrowingCatMechanics : MonoBehaviour
 {
@@ -17,9 +18,21 @@ public class ThrowingCatMechanics : MonoBehaviour
     public GameObject TowerPrefab;
     public GameObject tower;
 
+    public UpgradeMechanics upgradeManager;
+
+    public int level = 1;
+
+    public float[] modificators = { 0, 1.6f, 2.6f };
+
     void Start()
     {
         tower = Instantiate(TowerPrefab, transform.position + new Vector3(-0.3f, 1.7f, 0), Quaternion.identity);
+        tower.GetComponent<CatStationMechanics>().upgradeManager = upgradeManager;
+        tower.GetComponent<CatStationMechanics>().catParent = transform;
+        tower.GetComponent<CatStationMechanics>().catType = "ThrowingCat";
+        var towers = GameObject.FindGameObjectsWithTag("Tower");
+
+
         ret = GetComponent<RangeEnemyTargeting>();
     }
 
@@ -55,7 +68,7 @@ public class ThrowingCatMechanics : MonoBehaviour
         coolingDown = true;
         var obj = Instantiate(ballPrefab, transform.position, Quaternion.identity);
         obj.GetComponent<BallMechanics>().target = target;
-        obj.GetComponent<BallMechanics>().damage = damage;
+        obj.GetComponent<BallMechanics>().damage = Mathf.RoundToInt(damage * modificators[level - 1]);
         ResetCoolDown();
 
     }
@@ -65,6 +78,11 @@ public class ThrowingCatMechanics : MonoBehaviour
         coolingDown = false;
     }
 
+    public void LevelUp()
+    {
+        this.level++;
+        coolDownDuration /= modificators[level - 1];
+    }
 
 
 }

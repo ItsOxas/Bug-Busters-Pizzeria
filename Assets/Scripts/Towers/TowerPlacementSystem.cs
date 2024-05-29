@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -19,7 +21,10 @@ public class TowerPlacementSystem : MonoBehaviour
     public Transform throwerPrefab;
     public Transform walkerPrefab;
 
+
     public List<Vector2> occupiedPositions = new List<Vector2>();
+
+    public UpgradeMechanics upgradeManager;
 
     void Start()
     {
@@ -57,6 +62,7 @@ public class TowerPlacementSystem : MonoBehaviour
     {
         PlaceModeToggle();
         placeObject = throwerPrefab;
+
     }
 
     public void PlaceWalker()
@@ -92,7 +98,22 @@ public class TowerPlacementSystem : MonoBehaviour
 
         if (!isLegal) return;
 
-        Instantiate(placeObject, cellPosition, Quaternion.identity);
+        var cat = Instantiate(placeObject, cellPosition, Quaternion.identity);
+
+        switch (placeObject)
+        {
+            case var value when value == sleeperPrefab:
+                cat.GetComponent<SleepyCatMechanics>().upgradeManager = upgradeManager;
+                break;
+            case var value when value == throwerPrefab:
+                cat.GetComponent<ThrowingCatMechanics>().upgradeManager = upgradeManager;
+                break;
+            case var value when value == walkerPrefab:
+                cat.GetComponent<WalkingCatMechanics>().upgradeManager = upgradeManager;
+                break;
+        }
+
+
         occupiedPositions.Add((Vector2Int)cellPosition);
         placeObject = null;
 

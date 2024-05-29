@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class WalkingCatMechanics : MonoBehaviour
@@ -18,9 +19,21 @@ public class WalkingCatMechanics : MonoBehaviour
     public GameObject TowerPrefab;
     public GameObject tower;
 
+    public UpgradeMechanics upgradeManager;
+
+    public int level = 1;
+
+    public float[] modificators = { 0, 1.6f, 2.6f };
+
     void Start()
     {
         tower = Instantiate(TowerPrefab, transform.position + new Vector3(-0.3f, 1.7f, 0), Quaternion.identity);
+        tower.GetComponent<CatStationMechanics>().upgradeManager = upgradeManager;
+        tower.GetComponent<CatStationMechanics>().catParent = transform;
+        tower.GetComponent<CatStationMechanics>().catType = "WalkingCat";
+        var towers = GameObject.FindGameObjectsWithTag("Tower");
+
+
         ret = GetComponent<RangeEnemyTargeting>();
     }
 
@@ -44,7 +57,6 @@ public class WalkingCatMechanics : MonoBehaviour
         distanceToTarget = Vector2.Distance(transform.position, target.transform.position);
 
 
-        print(distanceToTarget);
         if (!coolingDown && distanceToTarget < 3)
         {
             Attack();
@@ -63,7 +75,7 @@ public class WalkingCatMechanics : MonoBehaviour
     public void Attack()
     {
         coolingDown = true;
-        target.GetComponent<Bug>().TakeDamage(damage);
+        target.GetComponent<Bug>().TakeDamage(Mathf.RoundToInt(damage * modificators[level - 1]));
         ResetCoolDown();
     }
 
@@ -73,4 +85,11 @@ public class WalkingCatMechanics : MonoBehaviour
         coolingDown = false;
     }
 
+
+    public void LevelUp()
+    {
+        this.level++;
+        coolDownDuration /= modificators[level - 1];
+        walkSpeed *= modificators[level - 1];
+    }
 }
