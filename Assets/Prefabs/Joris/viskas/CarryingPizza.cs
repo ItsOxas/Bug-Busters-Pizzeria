@@ -8,6 +8,8 @@ public class CarryingPizza : MonoBehaviour
     Collider2D col;
     public bool HoldingPizza = false;
     public List<GameObject> Picos;
+    public List<GameObject> fakePizza;
+    public bool fakePizzaHolding = false;
     public int MoneyEarnFromPizza;
 
     void Start()
@@ -19,6 +21,7 @@ public class CarryingPizza : MonoBehaviour
     void Update()
     {
         col = GetComponent<Interactions>().col;
+        if (HoldingPizza) { fakePizza[WithchPizza].SetActive(true); }
     }
 
     public void carryingPizza()
@@ -31,10 +34,12 @@ public class CarryingPizza : MonoBehaviour
         }
         else if (HoldingPizza)
         {
+            fakePizza[WithchPizza].SetActive(false);
             Instantiate(Picos[WithchPizza],gameObject.transform.position, Quaternion.identity);
             WithchPizza = col.gameObject.GetComponent<Pica>().WitchPica;
             Destroy(col.gameObject);
             print("pica paimta");
+            fakePizzaHolding = true;
         }
         
     }
@@ -45,7 +50,7 @@ public class CarryingPizza : MonoBehaviour
         {
             if (WithchPizza == 1)
             {
-                MoneyEarnFromPizza = 10;
+                MoneyEarnFromPizza = Picos[WithchPizza].GetComponent<Pica>().WitchPica;
                 HoldingPizza = false;
             }
             else

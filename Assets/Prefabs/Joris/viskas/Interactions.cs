@@ -39,15 +39,15 @@ public class Interactions : MonoBehaviour
         if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
             // cia unity eventa invokinkite ir parasykite pavadinima objecto
-            if (col.gameObject.name == "furnace")
+            if (col.gameObject.layer == 29)
             {
                 Furnace.Invoke();
             }
-            else if (col.gameObject.name.Contains("pizza"))
+            else if (col.gameObject.layer == 30)
             {
                 CarryingPizza.Invoke();
             }
-            else if (col.gameObject.name.Contains("Customer"))
+            else if (col.gameObject.layer == 31)
             {
                 CustomerGetingPizza.Invoke();
             }
