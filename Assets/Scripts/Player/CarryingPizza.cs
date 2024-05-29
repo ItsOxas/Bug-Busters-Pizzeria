@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CarryingPizza : MonoBehaviour
@@ -9,7 +10,7 @@ public class CarryingPizza : MonoBehaviour
     public bool HoldingPizza = false;
     public List<GameObject> Picos;
     public List<GameObject> fakePizza;
-    public bool FakePizzaAct;
+    public bool fakePizzaHolding = false;
     public int MoneyEarnFromPizza;
     
 
@@ -22,6 +23,8 @@ public class CarryingPizza : MonoBehaviour
     void Update()
     {
         col = GetComponent<Interactions>().col;
+        if (HoldingPizza) { fakePizza[WithchPizza].SetActive(true);}
+        
     }
 
     public void carryingPizza()
@@ -36,12 +39,12 @@ public class CarryingPizza : MonoBehaviour
         }
         else if (HoldingPizza)
         {
-           
+            fakePizza[WithchPizza].SetActive(false);
             Instantiate(Picos[WithchPizza],gameObject.transform.position, Quaternion.identity);
             WithchPizza = col.gameObject.GetComponent<Pica>().WitchPica;
             Destroy(col.gameObject);
             print("pica paimta");
-            
+            fakePizzaHolding = true;
         }
         
         

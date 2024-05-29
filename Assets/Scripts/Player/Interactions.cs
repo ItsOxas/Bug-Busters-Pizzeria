@@ -31,6 +31,7 @@ public class Interactions : MonoBehaviour
         {
             triggerActive = false;
         }
+        col = null;
     }
 
     void Update()

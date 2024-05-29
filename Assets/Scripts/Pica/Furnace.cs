@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Furnace : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Furnace : MonoBehaviour
     public int KuriPica;
     public GameObject AllButtons;
     public GameObject SpawnPoint;
+    public Slider Slider;
 
 
     // Start is called before the first frame update
@@ -25,9 +28,12 @@ public class Furnace : MonoBehaviour
     {
         if (makepizza)
         {
+            
             if (TimeToMakePizza > 0.0f)
             {
+                
                 TimeToMakePizza -= Time.deltaTime;
+                Slider.value = TimeToMakePizza;
             }
             else if (TimeToMakePizza < 0.0f)
             {
@@ -48,6 +54,7 @@ public class Furnace : MonoBehaviour
         makepizza = true;
         TimeToMakePizza = Picos[KuriPica].GetComponent<Pica>().TimeForPicaToMake;
         AllButtons.SetActive(false);
+        Slider.maxValue = TimeToMakePizza;
     }
     public void PizzaReady()
     {
