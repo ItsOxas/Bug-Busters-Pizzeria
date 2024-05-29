@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+<<<<<<< Updated upstream
 using UnityEngine.UI;
+=======
+using UnityEngine.UIElements;
+>>>>>>> Stashed changes
 
 public class Furnace : MonoBehaviour
 {
@@ -13,14 +17,19 @@ public class Furnace : MonoBehaviour
     public List<GameObject> Picos;
     public int KuriPica;
     public GameObject AllButtons;
+<<<<<<< Updated upstream
     public GameObject SpawnPoint;
     public Slider Slider;
+=======
+    public GameObject PizzaSpawnPoint;
+    public Slider slider;
+>>>>>>> Stashed changes
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -31,7 +40,11 @@ public class Furnace : MonoBehaviour
             
             if (TimeToMakePizza > 0.0f)
             {
+<<<<<<< Updated upstream
                 
+=======
+                slider.value = TimeToMakePizza;
+>>>>>>> Stashed changes
                 TimeToMakePizza -= Time.deltaTime;
                 Slider.value = TimeToMakePizza;
             }
@@ -54,7 +67,11 @@ public class Furnace : MonoBehaviour
         makepizza = true;
         TimeToMakePizza = Picos[KuriPica].GetComponent<Pica>().TimeForPicaToMake;
         AllButtons.SetActive(false);
+<<<<<<< Updated upstream
         Slider.maxValue = TimeToMakePizza;
+=======
+        
+>>>>>>> Stashed changes
     }
     public void PizzaReady()
     {
