@@ -22,6 +22,8 @@ public class SleepyCatMechanics : MonoBehaviour
 
     public float[] modificators = { 0, 1.6f, 2.6f };
 
+    public AudioClip catMeleeSound;
+
     void Start()
     {
         tower = Instantiate(TowerPrefab, transform.position + new Vector3(-0.3f, 1.7f, 0), Quaternion.identity);
@@ -62,6 +64,7 @@ public class SleepyCatMechanics : MonoBehaviour
 
     public void Attack()
     {
+        AudioManager.Play(catMeleeSound, 1f);
         coolingDown = true;
         target.GetComponent<Bug>().TakeDamage(Mathf.RoundToInt(damage * modificators[level - 1]));
         ResetCoolDown();

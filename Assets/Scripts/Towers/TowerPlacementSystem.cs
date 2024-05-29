@@ -27,6 +27,9 @@ public class TowerPlacementSystem : MonoBehaviour
 
     public UpgradeMechanics upgradeManager;
 
+    public AudioClip uiButtonSound;
+    public AudioClip uiClickSound;
+
     void Start()
     {
         
@@ -50,6 +53,7 @@ public class TowerPlacementSystem : MonoBehaviour
 
     public void BuyMenuToggle()
     {
+        AudioManager.Play(uiButtonSound, 1f);
         buyMenu.gameObject.active = !buyMenu.gameObject.active;
     }
 
@@ -74,6 +78,7 @@ public class TowerPlacementSystem : MonoBehaviour
 
     public void PlaceModeToggle()
     {
+        AudioManager.Play(uiClickSound, 1f);
         placeMode = !placeMode;
         buyMenu.gameObject.active = !buyMenu.gameObject.active;
         placableGridHighlight.gameObject.active = !placableGridHighlight.gameObject.active; 

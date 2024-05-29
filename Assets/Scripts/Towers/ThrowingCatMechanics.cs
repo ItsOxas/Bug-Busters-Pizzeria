@@ -24,6 +24,8 @@ public class ThrowingCatMechanics : MonoBehaviour
 
     public float[] modificators = { 0, 1.6f, 2.6f };
 
+    public AudioClip catThrowSound;
+
     void Start()
     {
         tower = Instantiate(TowerPrefab, transform.position + new Vector3(-0.3f, 1.7f, 0), Quaternion.identity);
@@ -65,6 +67,7 @@ public class ThrowingCatMechanics : MonoBehaviour
     }
     public void Throw()
     {
+        AudioManager.Play(catThrowSound, 1f);
         coolingDown = true;
         var obj = Instantiate(ballPrefab, transform.position, Quaternion.identity);
         obj.GetComponent<BallMechanics>().target = target;

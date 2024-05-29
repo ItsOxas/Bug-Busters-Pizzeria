@@ -45,3 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradePanel: {fileID: 0}
+  towerImg: {fileID: 0}
+  levelText: {fileID: 0}
+  catnameText: {fileID: 0}
+  buyButton: {fileID: 0}
+  moneyText: {fileID: 0}
+  updateTarget: {fileID: 0}
+  uiButtonSound: {fileID: 8300000, guid: a55a0e2c081927a489cdc00d864140d5, type: 3}
+  uiBuySound: {fileID: 8300000, guid: 127092b3101991e4fa7642985c354383, type: 3}
