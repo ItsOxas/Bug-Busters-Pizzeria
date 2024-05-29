@@ -144,5 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catParent: {fileID: 0}
+  catType: 
   upgradeManager: {fileID: 0}
   level: 1

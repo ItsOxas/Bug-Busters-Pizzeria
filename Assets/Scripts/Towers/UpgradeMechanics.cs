@@ -33,7 +33,7 @@ public class UpgradeMechanics : MonoBehaviour
 
             foreach (RaycastHit2D target in hit)
             {
-                if (!target.collider.gameObject.CompareTag("Tower") && target.collider.gameObject.CompareTag("upgradePannel") && upgradePanel.gameObject.active == true)
+                if (!target.collider.gameObject.CompareTag("Tower") && target.collider.gameObject.CompareTag("upgradeUi") && upgradePanel.gameObject.active == true)
                 {
                     PannelToggle();
                     
