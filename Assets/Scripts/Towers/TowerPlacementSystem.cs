@@ -13,6 +13,7 @@ public class TowerPlacementSystem : MonoBehaviour
     public Transform menuContent;
     public Transform placableGrid;
     public Transform placableGridHighlight;
+    public Transform newGrid;
 
     private bool placeMode = false;
     private Transform placeObject;
@@ -39,7 +40,7 @@ public class TowerPlacementSystem : MonoBehaviour
 
             foreach(RaycastHit2D target in hit)
             {
-                if(target.collider.gameObject.transform == placableGrid)
+                if (target.collider.gameObject.transform == placableGrid)
                 {
                     TowerInstantiate();
                 }
@@ -85,7 +86,7 @@ public class TowerPlacementSystem : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 10;
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-        Vector3Int cellPosition = placableGrid.GetComponent<Tilemap>().WorldToCell(worldPosition);
+        Vector3Int cellPosition = newGrid.GetComponent<Tilemap>().WorldToCell(worldPosition);
 
         foreach(Vector2 pos in occupiedPositions)
         {
