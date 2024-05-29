@@ -9,6 +9,8 @@ TagManager:
   - interactable
   - Chair
   - ChairLft
+  - upgradeUi
+  - Tower
   layers:
   - Default
   - TransparentFX
