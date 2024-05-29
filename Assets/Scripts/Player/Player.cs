@@ -8,7 +8,13 @@ public class Player : MonoBehaviour
     public float speed;
     float speedX;
     float speedY;
-    Vector2 moveDirection;
+    Vector2 input;
+    
+
+
+    public Animator anim;
+    private bool moving;
+
 
     Rigidbody2D rb;
     void Start()
@@ -18,17 +24,35 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        speedX = Input.GetAxis("Horizontal") * speed;
-        speedY = Input.GetAxis("Vertical") * speed;
+        speedX = Input.GetAxisRaw("Horizontal");
+        speedY = Input.GetAxisRaw("Vertical");
 
+        input = new Vector2(speedX, speedY); 
+        input.Normalize();
 
-        
-        moveDirection = rb.velocity = new Vector2(speedX, speedY);
-        
-        if (moveDirection != Vector2.zero)
+        Animate();
+    }
+    private void FixedUpdate()
+    {
+        rb.velocity = input * speed;
+    }
+
+    void Animate()
+    {
+        if (input.magnitude > 0.1f || input.magnitude < -0.1f)
         {
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            moving = true;
         }
+        else
+        {
+            moving = false;
+        }
+        if (moving)
+        {
+            anim.SetFloat("X",speedX);
+            anim.SetFloat("Y", speedY);
+        }
+
+        anim.SetBool("Moving", moving);
     }
 }
