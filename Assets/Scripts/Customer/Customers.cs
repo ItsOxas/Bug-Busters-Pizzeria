@@ -5,6 +5,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.UI;
 using UnityEngine.Tilemaps;
 using UnityEngine.Windows;
@@ -20,7 +21,7 @@ public class Customers : MonoBehaviour
     
     public GameObject target;
     NavMeshAgent agent;
-    bool isSiting = false;
+   public  bool isSiting = false;
     bool isEatting;
 
     public Event onInteraction;
@@ -39,6 +40,10 @@ public class Customers : MonoBehaviour
 
         Animate();
 
+        if (isEatting)
+        {
+            Eating();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,11 +53,6 @@ public class Customers : MonoBehaviour
             isSiting = true;     
             Invoke("Order", Random.Range(3f, 8f));
         }
-        if (isEatting)
-        {
-            Eating();
-        }
-
     }
     private void Enter()
     {
@@ -61,11 +61,20 @@ public class Customers : MonoBehaviour
 
    private void Exit()
     {
+        if (target.layer == 9)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        
         target = exit;
 
         agent.SetDestination(target.transform.position);
 
-        isSiting = false;    
+        isSiting = false;
+
+        SpawnCustomers.availableSeats.Add(target);
+
+        Invoke("Destroy", 8);
     }
 
     void Order()
@@ -111,8 +120,16 @@ public class Customers : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipX = true;
             }
         }
+        if (!isSiting)
+        {
+            anim.SetBool("isSitting", false);
+            anim.SetFloat("X", agent.velocity.x);
+        }
     }
 
-
+    void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }
 
