@@ -55,7 +55,7 @@ public class Furnace : MonoBehaviour
     public void PizzaReady()
     {
         print("hello");
-        Instantiate(Picos[KuriPica], SpawnPoint.transform.position, Quaternion.identity);
+        Instantiate(Picos[KuriPica], PizzaSpawnPoint.transform.position, Quaternion.identity);
         
     }
 }
