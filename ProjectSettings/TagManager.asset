@@ -7,8 +7,8 @@ TagManager:
   - Path
   - Bug
   - interactable
-  - Tower
-  - upgradeUi
+  - Chair
+  - ChairLft
   layers:
   - Default
   - TransparentFX
@@ -16,11 +16,11 @@ TagManager:
   - Enemy
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Customer
+  - Player
+  - Chair
+  - ChairRight
+  - Pica
   - 
   - 
   - 

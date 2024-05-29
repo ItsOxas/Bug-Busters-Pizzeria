@@ -8,7 +8,6 @@ public class BugBrains : MonoBehaviour
     private int wavepointIndex = 0;
     private Bug bug;
 
-
     void Start()
     {
         bug = GetComponent<Bug>();
@@ -41,7 +40,8 @@ public class BugBrains : MonoBehaviour
 
     void EndPath()
     {
-        Destroy(gameObject);
+        Invoke("Destroy", 4f);
+        RestauranHealth.restauranHealth--;
     }
 void MoveTowards(Vector2 direction) 
     {
@@ -49,5 +49,10 @@ void MoveTowards(Vector2 direction)
         Vector2 pos = direction - new Vector2(transform.position.x, transform.position.y);
         float angle = Mathf.Atan2(pos.x, pos.y) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
