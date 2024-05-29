@@ -4,59 +4,60 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class EnemySettings
-{
-    public int howMany;
-    public int Distance;
-    [Range(0, 4)] public float spawnInterval = 4f;
-}
-
-[System.Serializable]
 public class EnemyPack
 {
     public int enemyType;
+    public int amount;
+    [Range(0, 80)] public float spawnTime;
+    [Range(0, 4)] public float spawnInterval = 1f;
 
-    public List<EnemySettings> enemySettings;
 }
 
 [System.Serializable]
 public class Wave
 {
     public List<EnemyPack> enemies;
+    [Range(0, 80)] public float waveTime = 60f;
 }
 
 public class Spawner : MonoBehaviour
 {
     public List<GameObject> enemiesType;
     public List<Transform> spawnPoints;
-    public List<int> enemyCounts;
 
     public int currentWave;
     public List<Wave> waves;
-    public List<EnemyPack> enemies;
 
-    [Range(0, 10)] public float waveInterval = 10f;
+    [Range(0, 10)] public float nextWaveInterval = 8f;
 
-    public int enemiesLeft;
+    static public int enemiesLeft;
     
     async void Start()
     {
         while (currentWave < waves.Count)
         {
+
             var wave = waves[currentWave];
             for (int i = 0; i < wave.enemies.Count; i++)
             {
                 var enemy = wave.enemies[i];
-                Spawn(enemy.enemyType);
+                await new WaitForSeconds(enemy.spawnTime);
+                for (int x = 0; x < enemy.amount; x++)
+                {          
+                    if(x != 0)await new WaitForSeconds(enemy.spawnInterval);
+                    Spawn(enemy.enemyType);
+                    enemiesLeft++;
+                }
+
             }
 
-            await new WaitForSeconds(3f);
+            await new WaitForSeconds(wave.waveTime + nextWaveInterval);
             currentWave++;
         }
 
         void Spawn(int enemyType)
         {
-            var spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
+            var spawnPoint = spawnPoints[0];
             Instantiate(enemiesType[enemyType], spawnPoint.position, Quaternion.identity);
         }
 

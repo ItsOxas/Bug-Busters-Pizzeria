@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Path
+  - Bug
+  - interactable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 
