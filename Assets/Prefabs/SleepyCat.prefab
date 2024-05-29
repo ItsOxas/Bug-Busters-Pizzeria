@@ -186,8 +186,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ret: {fileID: 0}
   target: {fileID: 0}
-  damage: 1
-  coolDownDuration: 1
+  damage: 25
+  coolDownDuration: 2
   coolingDown: 0
   TowerPrefab: {fileID: 5044069374127055710, guid: a04d285fd117f0a4483359d7bb07b2c4, type: 3}
   tower: {fileID: 0}
+  upgradeManager: {fileID: 0}
+  level: 1
+  modificators:
+  - 0
+  - 1.6
+  - 2.6
+  catMeleeSound: {fileID: 8300000, guid: a923be768fd34a14aa7e8816da451544, type: 3}

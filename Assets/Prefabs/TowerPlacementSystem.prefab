@@ -52,3 +52,6 @@ MonoBehaviour:
   throwerPrefab: {fileID: 6631881111660732282, guid: 857f43846f28cf140a9dba878a92a1f3, type: 3}
   walkerPrefab: {fileID: 6631881111660732282, guid: 41aef2a887490684b905937b9fe5534a, type: 3}
   occupiedPositions: []
+  upgradeManager: {fileID: 0}
+  uiButtonSound: {fileID: 8300000, guid: a55a0e2c081927a489cdc00d864140d5, type: 3}
+  uiClickSound: {fileID: 8300000, guid: 4517a0c68a7a68447a79fa0962f1d3cd, type: 3}

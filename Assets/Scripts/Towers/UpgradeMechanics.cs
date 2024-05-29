@@ -20,6 +20,8 @@ public class UpgradeMechanics : MonoBehaviour
 
     public GameObject updateTarget = null;
 
+    public AudioClip uiButtonSound;
+    public AudioClip uiBuySound;
     void Start()
     {
 
@@ -44,6 +46,7 @@ public class UpgradeMechanics : MonoBehaviour
 
     public void UpdatePanelEnable(GameObject tower)
     {
+        AudioManager.Play(uiButtonSound, 1f);
         updateTarget = tower;
         var towerMechanics = updateTarget.GetComponent<CatStationMechanics>();
 
@@ -91,7 +94,7 @@ public class UpgradeMechanics : MonoBehaviour
     public void UpgradeCurrent()
     {
         if (updateTarget == null) return;
-
+        AudioManager.Play(uiBuySound, 1f);
         updateTarget.GetComponent<CatStationMechanics>().LevelUp();
 
     }
