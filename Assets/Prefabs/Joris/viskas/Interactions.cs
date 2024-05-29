@@ -13,6 +13,7 @@ public class Interactions : MonoBehaviour
     public UnityEvent Furnace;
     public UnityEvent CarryingPizza;
     public UnityEvent CustomerGetingPizza;
+    public UnityEvent BuyingTowers;
 
     [SerializeField]public Collider2D col;
 
