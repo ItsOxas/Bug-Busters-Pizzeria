@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6631881111660732282}
   - component: {fileID: 7728887082130596302}
   - component: {fileID: 1875318711091553947}
-  - component: {fileID: 8093618324590801065}
+  - component: {fileID: 6875189500244130343}
+  - component: {fileID: 4893656074707417530}
   - component: {fileID: 2972232635785327575}
   m_Layer: 0
   m_Name: WalkingCat
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.378269, y: 10.92, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,9 +76,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.028856823, g: 0.3679245, b: 0, a: 1}
+  m_SortingOrder: 14
+  m_Sprite: {fileID: 21300000, guid: 3f4a221ff111c8b419569a6792bab153, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,7 +123,42 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8093618324590801065
+--- !u!58 &6875189500244130343
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5368172394023964748}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
+--- !u!114 &4893656074707417530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,11 +167,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5368172394023964748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffc9788c391bce14a8a476c825aa0e6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d7d917f42dfec44cb5f521ef5952733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tag: Bug
-  range: 5
   target: {fileID: 0}
 --- !u!114 &2972232635785327575
 MonoBehaviour:
@@ -149,3 +184,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c7e47c9150e234f9512cf3f9a515ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ret: {fileID: 0}
+  target: {fileID: 0}
+  damage: 30
+  walkSpeed: 3
+  coolDownDuration: 1
+  coolingDown: 0
+  distanceToTarget: 0
+  TowerPrefab: {fileID: 5044069374127055710, guid: a04d285fd117f0a4483359d7bb07b2c4, type: 3}
+  tower: {fileID: 0}
+  upgradeManager: {fileID: 0}
+  level: 3
+  modificators:
+  - 0
+  - 1.6
+  - 2.6
+  catMeleeSound: {fileID: 8300000, guid: a923be768fd34a14aa7e8816da451544, type: 3}

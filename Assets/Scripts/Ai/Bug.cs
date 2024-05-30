@@ -18,11 +18,20 @@ public class Bug : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if(health <= 0)
+        {
+            Die();
+        }
     }
     public void Die() 
     {
         Spawner.enemiesLeft--;
-        Destroy(gameObject);
+
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 

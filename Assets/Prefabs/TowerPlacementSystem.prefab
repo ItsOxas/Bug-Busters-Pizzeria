@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1368543721080208145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890655655110331536}
+  - component: {fileID: 8730782774925828010}
+  m_Layer: 0
+  m_Name: TowerPlacementSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1890655655110331536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368543721080208145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.519293, y: -5.632822, z: -1.3998262}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8730782774925828010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368543721080208145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1189e817cdecfc54ba81e4568a0b2b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buyMenu: {fileID: 0}
+  menuContent: {fileID: 0}
+  placableGrid: {fileID: 0}
+  placableGridHighlight: {fileID: 0}
+  sleeperPrefab: {fileID: 2056324144287251634, guid: b70748f9559af2248923b436f97f41a8, type: 3}
+  throwerPrefab: {fileID: 6631881111660732282, guid: 857f43846f28cf140a9dba878a92a1f3, type: 3}
+  walkerPrefab: {fileID: 6631881111660732282, guid: 41aef2a887490684b905937b9fe5534a, type: 3}
+  occupiedPositions: []
+  upgradeManager: {fileID: 0}
+  uiButtonSound: {fileID: 8300000, guid: a55a0e2c081927a489cdc00d864140d5, type: 3}
+  uiClickSound: {fileID: 8300000, guid: 4517a0c68a7a68447a79fa0962f1d3cd, type: 3}
