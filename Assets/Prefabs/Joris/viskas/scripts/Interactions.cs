@@ -11,9 +11,10 @@ public class Interactions : MonoBehaviour
 
     // cia pridekit jei reikia daugiau interiactions ir pridekit jam tag interactable
     public UnityEvent Furnace;
+    public UnityEvent MakingPizza;
     public UnityEvent CarryingPizza;
     public UnityEvent CustomerGetingPizza;
-    public UnityEvent BuyingTowers;
+    
 
     [SerializeField]public Collider2D col;
 
@@ -39,7 +40,7 @@ public class Interactions : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.E))
         {
-            // cia unity eventa invokinkite ir parasykite pavadinima objecto
+           
             if (col.gameObject.layer == 29)
             {
                 Furnace.Invoke();
@@ -51,6 +52,10 @@ public class Interactions : MonoBehaviour
             else if (col.gameObject.layer == 31)
             {
                 CustomerGetingPizza.Invoke();
+            }
+            else if (col.gameObject.layer == 29)
+            {
+                MakingPizza.Invoke();
             }
             print(":)");
         }

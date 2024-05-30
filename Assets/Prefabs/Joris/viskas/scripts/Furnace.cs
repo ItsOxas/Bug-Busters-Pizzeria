@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
-<<<<<<<< HEAD:Assets/Prefabs/Joris/ViskasJ/Furnace.cs
-<<<<<<< Updated upstream
 using UnityEngine.UI;
-=======
-using UnityEngine.UIElements;
->>>>>>> Stashed changes
-========
-using UnityEngine.UI;
->>>>>>>> main:Assets/Prefabs/Joris/viskas/Furnace.cs
+
+
 
 public class Furnace : MonoBehaviour
 {
@@ -21,19 +15,14 @@ public class Furnace : MonoBehaviour
     public List<GameObject> Picos;
     public int KuriPica;
     public GameObject AllButtons;
-<<<<<<<< HEAD:Assets/Prefabs/Joris/ViskasJ/Furnace.cs
-<<<<<<< Updated upstream
-    public GameObject SpawnPoint;
-    public Slider Slider;
-=======
+
+    
     public GameObject PizzaSpawnPoint;
     public Slider slider;
->>>>>>> Stashed changes
 
-========
-    public Slider Slider;
-    public GameObject PizzaSpawnPoint;
->>>>>>>> main:Assets/Prefabs/Joris/viskas/Furnace.cs
+
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -49,13 +38,11 @@ public class Furnace : MonoBehaviour
             
             if (TimeToMakePizza > 0.0f)
             {
-<<<<<<< Updated upstream
-                
-=======
+
                 slider.value = TimeToMakePizza;
->>>>>>> Stashed changes
+
                 TimeToMakePizza -= Time.deltaTime;
-                Slider.value = TimeToMakePizza;
+                slider.value = TimeToMakePizza;
             }
             else if (TimeToMakePizza < 0.0f)
             {
@@ -76,24 +63,21 @@ public class Furnace : MonoBehaviour
         makepizza = true;
         TimeToMakePizza = Picos[KuriPica].GetComponent<Pica>().TimeForPicaToMake;
         AllButtons.SetActive(false);
-<<<<<<<< HEAD:Assets/Prefabs/Joris/ViskasJ/Furnace.cs
-<<<<<<< Updated upstream
-        Slider.maxValue = TimeToMakePizza;
-=======
-        
->>>>>>> Stashed changes
-========
-        Slider.maxValue = TimeToMakePizza;
->>>>>>>> main:Assets/Prefabs/Joris/viskas/Furnace.cs
+
+        slider.maxValue = TimeToMakePizza;
+
+
+        slider.maxValue = TimeToMakePizza;
+
     }
     public void PizzaReady()
     {
         print("hello");
-<<<<<<<< HEAD:Assets/Prefabs/Joris/ViskasJ/Furnace.cs
-        Instantiate(Picos[KuriPica], SpawnPoint.transform.position, Quaternion.identity);
-========
+
         Instantiate(Picos[KuriPica], PizzaSpawnPoint.transform.position, Quaternion.identity);
->>>>>>>> main:Assets/Prefabs/Joris/viskas/Furnace.cs
+
+        Instantiate(Picos[KuriPica], PizzaSpawnPoint.transform.position, Quaternion.identity);
+
         
     }
 }

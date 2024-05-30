@@ -23,12 +23,12 @@ public class CarryingPizza : MonoBehaviour
     void Update()
     {
         col = GetComponent<Interactions>().col;
-<<<<<<<< HEAD:Assets/Prefabs/Joris/ViskasJ/CarryingPizza.cs
+
         if (HoldingPizza) { fakePizza[WithchPizza].SetActive(true);}
         
-========
-        if (HoldingPizza) { fakePizza[WithchPizza].SetActive(true); }
->>>>>>>> main:Assets/Prefabs/Joris/viskas/CarryingPizza.cs
+
+        
+
     }
 
     public void carryingPizza()
@@ -60,11 +60,11 @@ public class CarryingPizza : MonoBehaviour
         {
             if (WithchPizza == 1)
             {
-<<<<<<<< HEAD:Assets/Prefabs/Joris/ViskasJ/CarryingPizza.cs
+
                 MoneyEarnFromPizza = Picos[WithchPizza].GetComponent<Pica>().MoneyEarnFromPica;
-========
+
                 MoneyEarnFromPizza = Picos[WithchPizza].GetComponent<Pica>().WitchPica;
->>>>>>>> main:Assets/Prefabs/Joris/viskas/CarryingPizza.cs
+
                 HoldingPizza = false;
             }
             else
